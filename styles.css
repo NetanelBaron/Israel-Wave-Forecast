@@ -30,8 +30,16 @@ li, a {
     cursor: pointer;
     font-weight: 600;
     color: var(--green);
+    transition: all 0.3s ease;
     
 }
+
+.empty-btn:hover {
+    background-color: var(--green);
+    color: white;
+    transform: translateY(-7px);
+}
+
 
 /* Navbar */
 .nav {
@@ -58,9 +66,37 @@ li, a {
     display: inline-block;
     padding-left: 12%;
     
+    
 }
 
 .a-link {
     color: var(--dark-gray);
+    position: relative;
+
 }
 
+.a-link::after {
+    content: "";
+    position: absolute;
+    background-color: var(--green);
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -7px;
+    transition: 0.2s ease;
+}
+
+.a-link:hover::after {
+    width: 100%;
+}
+
+.selected-page::after {
+    content: "";
+    position: absolute;
+    background-color: var(--green);
+    height: 3px;
+    width: 100%;
+    left: 0;
+    bottom: -7px;
+    cursor: default;
+}
